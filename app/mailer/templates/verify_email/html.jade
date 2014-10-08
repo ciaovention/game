@@ -1,0 +1,20 @@
+extends ../layout/default
+
+block content
+  p(style='padding: 0 0 10px 0;')
+    br
+    | #{__('email_hello', {name: user.name})}
+    br
+    br
+    | #{__('email_verify_email_body')}
+  center
+    a(href=link)=__('email_verify_email_link')
+  br
+  br
+  p(style='padding: 0 0 10px 0;')=__('tips')
+  br
+  p(style='padding: 0 0 10px 0;')
+    br
+    | #{__('email_thank_you')}
+    br
+    | #{__('email_wcard')}

@@ -1,0 +1,10 @@
+br
+-if(feedbacks.length)
+	include feedbackItem
+	-if(feedbacks.length == 10)
+		center
+			a.btn.btn-default.show-more(data-max_id=feedbacks[feedbacks.length-1].id)=__('show_more')
+-else
+	center
+		br
+		p=__('no_feedback')

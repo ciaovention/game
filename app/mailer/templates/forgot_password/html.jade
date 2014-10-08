@@ -1,0 +1,18 @@
+extends ../layout/default
+
+block content
+  p(style='padding: 0 0 10px 0;')
+    br
+    | #{__('email_hello', {name: user.name})}
+    br
+    br
+    | #{__('email_forgot_password_body')}
+    br
+  center
+    a(href=link)=__('email_forgot_password_link')
+  br
+  p(style='padding: 0 0 10px 0;')
+    br
+    | #{__('email_thank_you')}
+    br
+    | #{__('email_wcard')}

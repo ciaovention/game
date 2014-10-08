@@ -1,0 +1,37 @@
+nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+  .container
+    .navbar-header
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      - if (req.isAuthenticated())
+        a.navbar-brand(href='/u/#{req.user.username}')=__('wcard')
+      - else
+        //a.navbar-brand(href='/')=__('wcard')
+        a.navbar-brand(href='/')=__('create_mine')
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        - if (req.isAuthenticated())
+          li(class=isActive('/dashboard/profile') ? 'active' : '')
+            a(href="/dashboard/profile", title="Dashboard")=__('edit_profile')
+
+      ul.nav.navbar-nav.navbar-right
+        
+        - if (req.isAuthenticated())
+          li.dropdown(class=isActive('/dashboard/password') ? 'active' : '')
+            a.dropdown-toggle(data-toggle="dropdown", href="#")=req.user.name
+              span.caret
+                ul.dropdown-menu
+                  li
+                    a(href="/dashboard/password", title="Change Password")=__('change_password')
+                  li
+                    a(href="/u/#{req.user.username}", title="My Profile")=__('my_profile')
+                  li
+                    a(href="/logout", title="logout")=__('logout')
+
+        - else
+          - if(req.wechat)
+            li(class=isActive('/login') ? 'active' : '')
+              a(href="/login", title="login")=__('login')

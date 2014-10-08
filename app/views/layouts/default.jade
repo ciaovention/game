@@ -1,0 +1,25 @@
+doctype html
+html(lang='en', xmlns:fb='https://www.facebook.com/2008/fbml', itemscope='itemscope', itemtype='http://schema.org/Product')
+  include ../includes/head
+  - if (req.isMobile)
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    //link(rel="stylesheet", href="/css/bootstrap-responsive.min.css")
+  body
+    script.
+      var isAuthenticated = #{req.isAuthenticated()};
+      var hasShorturl = #{!!(req.user && req.user.shorturl)};
+    block vars
+    #wrap
+      include ../includes/header
+      block carousel
+      .container
+        .main-content
+          .main-messages
+            include ../includes/messages
+          .main-head
+            block main
+          block content
+    include ../includes/spinner
+    if(!req.wechat)
+      include ../includes/footer
+    include ../includes/foot

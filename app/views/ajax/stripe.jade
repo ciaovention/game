@@ -1,0 +1,17 @@
+html
+  body
+    center
+      -if(success === true)
+        h2=__('stripe_connected_success')
+        br
+        p=__('stripe_connected_success_text')
+      -else
+        h2=__('stripe_connected_error')
+        br
+        p=__('stripe_connected_error_text')
+
+      br
+      p=__('closing_window')
+  
+script.
+    setTimeout(function(){window.close();},2000);

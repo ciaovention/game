@@ -1,0 +1,55 @@
+head
+  meta(charset="utf-8")
+  meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+
+  - if(!pageTitle)
+    title=__('wcard') + '-' + __('what_is_wcard_text')
+  - else
+    title=pageTitle
+  meta(http-equiv="Content-type", content="text/html;charset=UTF-8")
+  meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes')
+  meta(name="keywords", content=pkg.keywords.join(","))
+  meta(name="description", content=__('what_is_wcard_text'))
+  
+  link(href=getImage('images/favicon.ico'), rel="shortcut icon", type="image/x-icon")
+
+  //Opengraph tags
+  meta(property="wb:webmaster" content="7095fc5f8c693c03")
+  meta(property="fb:app_id", content="620239118052395")
+  meta(property="og:title", content=__(''))
+  meta(property="og:site_name", content=__('wcard'))
+  meta(property="fb:admins", content="122616040")
+  meta(property="twitter:card", content="summary_large_image")
+  meta(property="twitter:site", content="@wcardApp")
+
+  - if(customMeta)
+    - each item in customMeta
+      meta(property=item.property, content=item.content)
+  - else
+    meta(property="og:url", content=pkg.host)
+    meta(property="og:description", content=__('what_is_wcard_text'))
+    - var random = Math.floor((Math.random() * 10) + 1)
+    meta(property="og:image", content=getImage("images/"+random+".jpg"))
+
+  //
+     Styles
+  - if(process.env.NODE_ENV != 'development')
+    link(rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css")
+    link(href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css", rel="stylesheet")
+    link(rel="stylesheet", href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.css")
+  - else
+    link(rel="stylesheet", href="/css/bootstrap.min.css")
+    link(href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css", rel="stylesheet")
+    link(rel="stylesheet", href="/css/jquery-ui.css")
+
+  link(rel="stylesheet", href="/css/app.css")
+
+  if typeof(css) != 'undefined'
+    each item in css
+      link(rel="stylesheet", href="/css/"+item+".css")
+
+  //
+     HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+  //if lt IE 9
+    script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+    script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')

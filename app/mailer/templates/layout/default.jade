@@ -1,0 +1,37 @@
+html
+  head
+  body
+    center
+      table(border='0', cellpadding='20', cellspacing='0', height='100%', width='100%', style='background-color: #D2DADF;')
+        tbody
+          tr
+            td(align='center', valign='top')
+              table(border='0', cellpadding='0', cellspacing='0', width='600', style='border-radius: 6px; background-color: #F3FBFC;')
+                tbody
+                  tr
+                    td(align='center', valign='top')
+                  tr
+                    td(align='center', valign='top')
+                      table(border='0', cellpadding='0', cellspacing='0', width='600', style='border-radius: 6px; background-color: #F3FBFC;')
+                        tbody
+                          tr
+                            td(align='left', valign='top', style='line-height: 150%; font-family: Helvetica; font-size: 13px; color: #333333; padding: 20px;')
+                              span
+                                h2(style='line-height: 28px; margin: 0 0 10px 0;')
+                                  span(style='color: #3498db; font-size: 22px;') #{__('wcard')}
+                                  span(style='float: right; font-size: 12px;') #{title}
+                              hr
+                              block content
+                  tr
+                    td(align='center', valign='top')
+                      table(border='0', cellpadding='20', cellspacing='0', width='600')
+                        tbody
+                          tr
+                            td(align='center', valign='top')
+                              div
+                                hr
+                                p(style='padding: 0 0 10px 0; font-size: 12px;')
+                                  | #{__('email_footer')}
+                                  a(href='mailto:support@wcard.co') info@wcard.co
+                                p
+                                  a(href=hostname) wcard.co

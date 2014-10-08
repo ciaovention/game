@@ -1,0 +1,391 @@
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+a, u {
+    text-decoration: none !important;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -80px;
+  /* Pad bottom by footer height */
+  padding: 0 0 50px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  padding: 15px;
+  height: -80px;
+}
+
+.home-detail{
+  width: 100%;
+  position: fixed;
+  bottom: 10%;
+}
+
+.fullscreen_post_bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.container .text-muted {
+  margin: 20px 0;
+}
+
+#footer > .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#footer p, #footer a{
+  font: normal 14px "Helvetica","Arial","sans-serif";
+  color: #808991;
+  margin: 5px 5px 0;
+}
+
+/* -----------------------------------------------
+  App styles
+  ------------------------------------------------ */
+body {
+  padding-top: 50px;
+}
+
+.main-content{
+  padding-top: 10px;
+}
+
+.navbar-home{
+  background-color: #fff !important;
+  border-color: #fff !important;
+}
+
+.carousel{
+  margin-bottom: 30px;
+}
+
+.item-match{
+  background-color: #eee !important;
+  border-radius: 6px !important;
+  color: #333;
+}
+
+.carousel .item {
+  min-height: 350px; 
+  max-height: 500px;
+  background-color: #777;
+  font-size: 21px;
+}
+
+.carousel .item > img{
+  opacity:0.8 !important; 
+  min-width: 100%;
+  min-height: 350px;
+}
+
+.carousel-caption {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+  max-height: 500px;
+  padding: 5% 0 5% 0;
+  left: 5%;
+  right:5%;
+}
+.carousel-control{
+  z-index: 999;
+}
+
+.carousel-caption-match {
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  top: 20%;
+  z-index: 10;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+  font-size: 16px;
+}
+
+.media:first-child{
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.carousel-caption-match-mobile {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 5%;
+  z-index: 10;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+  font-size: 16px;
+}
+
+.article, .comment {
+  top:0px;
+  padding: 15px 0;
+  border-top: 1px solid #e8e8e8;
+}
+
+.error,
+a.error,
+a.error:hover,
+a.error:focus,
+button.error,
+button.error:hover,
+button.error:focus {
+  color: #D9534F;
+}
+
+.form-actions {
+  background: #fff;
+  border: 0;
+}
+
+#spacer {
+  display: inline-block;
+}
+
+.muted {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.alert {
+  margin-top: 10px;
+}
+
+.navbar-brand {
+  font-size: 18px;
+  color: #000 !important;
+}
+
+.navbar-nav > li > a.travis{
+  padding-top: 13px;
+}
+
+.full-width{
+  position: absolute;
+  left:0;
+  right:0;
+}
+
+.media-body > p{
+  font-size: 13px;
+}
+
+#recaptcha{
+  display: none;
+}
+
+.btn-full-width{
+  width: 100%;
+}
+
+.forgot-password{
+  padding-top: 5px;
+  float: right!important;
+}
+
+.media > a > .username{
+  width:75px;
+  word-wrap:break-word;
+  margin-top: 5px;
+}
+
+.text-white{
+  color: white !important;
+}
+
+.width-120{
+  width: 120px;
+}
+
+.no-margin-top{
+  margin-top: 0px;
+}
+
+.table-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 660px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  list-style: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+  background-clip: padding-box;
+}
+
+.img-thumbnail{
+  width: 75px;
+  height: 75px;
+}
+
+.blur{
+  filter: grayscale(30%);
+-webkit-filter: grayscale(30%);
+-moz-filter: grayscale(30%);
+-o-filter: grayscale(30%);
+-ms-filter: grayscale(30%);
+}
+
+.overlay{
+  background-color: rgba(0, 0, 0, 0.3);
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+position: fixed;
+/* -webkit-transition: background 300ms ease-out; */
+-moz-transition: background 300ms ease-out;
+-o-transition: background 300ms ease-out;
+-ms-transition: background 300ms ease-out;
+/* transition: background 300ms ease-out; */
+}
+
+.overlay-spinner {
+    border-radius: 5px;
+    position: fixed;
+    display: none;
+    top: 44%;
+    left: 15%;
+    right: 15%;
+    bottom: 44%;
+    background: rgba(0,0,0,.5) center center no-repeat;
+}
+
+#inner {
+    position: fixed;
+    top: 48%;
+    left: 35%;
+    right: 35%;
+    bottom: 48%;
+}
+
+.rating{
+  cursor: pointer;
+}
+
+.fa-2 {
+font-size: 2em;
+}
+
+.fa-3 {
+font-size: 3em;
+}
+
+.fa-4 {
+font-size: 4em;
+}
+
+.fa-5 {
+  font-size: 5em;
+}
+
+.navbar-home .navbar-nav>li>a {
+color: #777;
+}
+
+.hight-center{
+  margin-top: 6%;
+}
+.jumbotron p {
+  font-size: 18px;
+}
+
+.ontop{
+  position: relative;
+  z-index: 1050;
+}
+
+#avatar-preview {
+  float: left;
+  
+}
+
+.avatar-uploader {
+  float: left;
+}
+
+.home-font{
+  color:white;
+  font-size: 18px;
+}
+
+.latest-trips,latest-kagos{
+  min-height: 100px;
+  overflow: hidden;
+}
+
+.datepicker{
+  width: 230px;
+}
+
+.share-buttons{
+  list-style: none;
+}
+
+.share-buttons li{
+  display: inline;
+}
+
+.cut-overflow{
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+.toggle-success{
+  color:#4cae4c !important;;
+}
+
+.toggle-default{
+  color: grey;
+}
+
+.connect>a{
+  color: grey;
+}
+
+.close-msg{
+  position: fixed;
+  text-align: center;
+  bottom:5%;
+  width: 100%;
+}

@@ -1,0 +1,20 @@
+//.share-buttons
+  li
+    a(href='https://www.facebook.com/sharer/sharer.php', target='_blank', title='Share on Facebook', onclick='window.open(\'https://www.facebook.com/sharer/sharer.php?u=\' + encodeURIComponent(document.URL) + \'&t=\' + encodeURIComponent(document.URL)); return false;')
+      i.fa.fa-facebook.fa-2x
+  | &nbsp;
+  li
+    a(href='https://twitter.com/intent/tweet', target='_blank', title='Tweet', onclick='window.open(\'https://twitter.com/intent/tweet?text=\' + encodeURIComponent(document.title) + \' \' + encodeURIComponent(document.URL)); return false;')
+      i.fa.fa-twitter.fa-2x
+  | &nbsp;
+  li
+    a(href='https://plus.google.com/share', target='_blank', title='Share on Google+', onclick='window.open(\'https://plus.google.com/share?url=\' + encodeURIComponent(document.URL)); return false;')
+      i.fa.fa-google-plus.fa-2x
+  | &nbsp;
+  li
+    a(href='http://www.linkedin.com/shareArticle', target='_blank', title='Share on LinkedIn', onclick='window.open(\'http://www.linkedin.com/shareArticle?mini=true&url=\' + encodeURIComponent(document.URL) + \'&title=\' +  encodeURIComponent(document.title)); return false;')
+      i.fa.fa-linkedin.fa-2x
+  | &nbsp;
+  li
+    a(href='http://service.weibo.com/share/share.php', target='_blank', title='Share on LinkedIn', onclick='window.open(\'http://service.weibo.com/share/share.php?&url=\' + encodeURIComponent(document.URL) + \'&title=\' +  encodeURIComponent(document.title) + \'&pic=#{pic}\'); return false;')
+      i.fa.fa-weibo.fa-2x

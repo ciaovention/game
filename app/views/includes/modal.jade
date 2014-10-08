@@ -1,0 +1,11 @@
+//Modal
+.modal.fade#myModal(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type="button" data-dismiss="modal" aria-hidden="true") &times;
+        h4.modal-title#myModalLabel Modal title
+      .modal-body
+      .modal-footer
+        button.btn.btn-default.btn-print(type="button")=__('print')
+        button.btn.btn-primary(type="button" data-dismiss="modal")=__('ok')

@@ -1,0 +1,18 @@
+script.
+    var RecaptchaOptions = {
+       theme : 'clean'
+    };
+
+form#recaptcha(method='POST', action='.')
+  .form-group
+    !=recaptcha_form
+
+  br
+  button.btn.btn-primary(type='submit')=__('create_account')
+
+  .row
+    .col-md-4
+    .col-md-4
+      br
+      p!=__('create_account_text')
+    .col-md-4

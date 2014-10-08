@@ -1,0 +1,31 @@
+#footer
+  br
+  .container.full-width
+    .row
+      .col-sm-4.text-center
+        -if(share)
+          include ./share
+      .col-sm-4.text-center
+        p
+          a(href='/terms')=__('terms')
+          span |
+          a(href='/privacy')=__('privacy')
+          span |
+          a(href='/contact')=__('contact')
+          //span |
+          //a(href='/about')=__('about')
+
+      .col-sm-4.text-center
+        p
+          i.fa.fa-flag
+          | &nbsp;
+          select(data-keek-component='language-picker' onchange="location = this.options[this.selectedIndex].value;")
+            option=__('language')
+              option(value='/zh-cn')  简体中文
+              option(value='/zh-tw') 繁体中文
+    br
+    center
+      p
+        | © 2014
+        a(href='/') 微名片
+    br

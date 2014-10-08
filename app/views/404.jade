@@ -1,0 +1,15 @@
+extends layouts/default
+
+block main
+  h1 Page not found
+  br
+  span 404
+
+block content
+  #error-message-box
+    #error-stack-trace
+      pre
+        code!= error
+
+  script.
+    setTimeout(function(){history.back();},2000);

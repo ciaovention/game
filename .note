@@ -1,0 +1,55 @@
+rhc app create notebook jbossas-7 -l <openshift_login_email> -d
+Go to newly created directory and replace default openshift code with your repo
+
+git rm -rf src/ pom.xml
+
+git commit -am "removed default files"
+
+git remote add local -m master https://xueenda:83year.W@bitbucket.org/xueenda/daiwu.git
+
+git pull -s recursive -X theirs local master
+
+git push
+
+
+ssh 5346f3c45973ca4be500037c@local-daiwu.rhcloud.com
+
+ssh 534b41874382ecd6410007b0@app1-daiwu1.rhcloud.com
+
+ssh 534c19394382ec504200009c@app2-daiwu1.rhcloud.com
+
+
+gear deploy tags/1.0.3
+
+rhc app-deploy tags/1.0.3 --app local
+
+git remote add notebook -m master 
+
+ssh://5346f3c45973ca4be500037c@local-daiwu.rhcloud.com/~/git/local.git/
+
+Database: local User: admin Password: 8jP7LnxQ53m2
+
+127.4.191.1:8080 
+
+127.12.235.129
+
+
+
+errorfile 503 /var/lib/openshift/534c19394382ec504200009c/haproxy/errorfiles/503.http
+
+rhc show-app local --gears quota
+
+
+MONGODB_DB_URL=mongodb://admin:8jP7LnxQ53m2@5346f451500446ed8700069d-daiwu.rhcloud.com:59056/
+
+MONGODB_SESSION_DB_URL=mongodb://admin:C9at8RgW2bsI@5359678ee0b8cdfc1900067c-daiwu1.rhcloud.com:64791/
+
+
+Support bank cards in following countries last but lease it keeps growing 
+https://stripe.com/global
+
+About stripe check out:
+https://stripe.com/checkout
+
+Support currencies:
+https://support.stripe.com/questions/which-currencies-does-stripe-support
