@@ -15,6 +15,8 @@ exports.new = function (req, res){
 
 exports.create = function (req, res){
 
+	console.log(req.body)
+
 	req.body.score = req.body.score1 + ':' +req.body.score2
 
 	var game = new Game(req.body)
@@ -55,9 +57,11 @@ exports.create = function (req, res){
 }
 
 function updatePlayer(name,score1, score2, cb){
-	Player.load(name, function(player, cb){
+	Player.load(name, function(err, player){
+		if(err) return cb(err)
+
 		if(player){
-			player.score+= req.body.score1 - req.body.score2
+			player.score+= score1 - score2
 	    	player.count++
 	    	player.average = (player.score/player.count).toFixed(2)
 		}else{

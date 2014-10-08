@@ -17,8 +17,8 @@ module.exports = function (app, config, passport) {
 
   // minimal config for i18n
   i18n.configure({
-    locales: ['zh-cn', 'zh-tw'],
-    defaultLocale: 'zh-cn',
+    locales: ['en','zh-cn', 'zh-tw'],
+    defaultLocale: 'en',
     cookie: 'locale',
     directory: __dirname + '/locales'
   });

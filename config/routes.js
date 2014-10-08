@@ -10,7 +10,7 @@
 
 var page = require('../app/controllers/page')
   , game = require('../app/controllers/game')
-  , dashboard = require('../app/controllers/dashboard')
+  , player = require('../app/controllers/player')
   , auth = require('./middlewares/authorization')
   , auto =require('./auto')
 
@@ -55,10 +55,10 @@ module.exports = function (app, passport) {
   // player routes
   app.get('/player/:name', player.show)
   app.param('name', player.player)
-  app.get('/players', player.list)
+  app.get('/ranking', player.list)
 
   // board route
-  app.get('/board', player.top)
+  app.get('/board', player.list)
 
   // home route
   app.all('/', page.index)

@@ -39,4 +39,4 @@ GameSchema.statics = {
   }
 }
 
-mongoose.model('Player', PlayerSchema)
+mongoose.model('Game', GameSchema)

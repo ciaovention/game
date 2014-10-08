@@ -36,22 +36,8 @@ $(document).ready(function () {
 
 	$('.spinner').click(function(){
 		$('.overlay-spinner').show();
-	});
-
-	if(typeof hasShorturl !== 'undefined' && !hasShorturl){
-		getShortUrl();
-	}
-	
+	});	
 });
-
-function getShortUrl(email){
-	var username = (email || '').split('@')[0];
-	$.get('/a/user/shorturl',{username: username}, function(data){
-		if(data !== false){
-			$('#shorturl').val(data);
-		}
-	});
-}
 
 function showMessage(message, type) {
 	var html = '<div class="fade in alert alert-'+type+'">' +

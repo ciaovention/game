@@ -1,0 +1,16 @@
+extends ../layouts/default
+
+block main
+  .row
+    .col-md-8.col-md-offset-2
+      center
+        h1= title
+        hr
+
+block content
+  .row
+    | #{player.name.charAt(0).toUpperCase() +  player.name.slice(1)}
+    br
+    | #{player.average}
+    br
+    | Total score #{player.score} on #{player.count} Games

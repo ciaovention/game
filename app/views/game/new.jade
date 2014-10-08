@@ -1,0 +1,44 @@
+extends ../layouts/default
+
+block vars
+  script.
+    var language = "#{req.language}".replace('-cn', '-CN').replace('-tw','-TW');
+
+block main
+  .row
+    .col-md-8.col-md-offset-2
+      center
+        h1= title
+        hr
+
+block content
+
+  .row
+    .col-md-8.col-md-offset-2
+      form.form-horizontal(method="post"  action=""  role="form")
+
+        input(type="hidden"  name="_csrf"  value="#{csrf_token}")
+
+        .form-group
+          label.col-sm-2.control-label(for='player1')=__('player1')
+          .col-sm-4
+            input.form-control(type='text'  name="player1"  value=game.player1  placeholder=__('Name of player 1') required)
+
+          label.col-sm-2.control-label(for='player2')=__('player2')
+          .col-sm-4
+            input.form-control(type='text'  name="player2"  value=game.player2  placeholder=__('Name of player 2') required)
+
+        .form-group
+          label.col-sm-2.control-label(for='score1')=__('score1')
+          .col-sm-4
+            input.form-control(type='text'  name="score1" placeholder=__('Score') required)
+
+          label.col-sm-2.control-label(for='score2')=__('score2')
+          .col-sm-4
+            input.form-control(type='text'  name="score2" placeholder=__('Score') required)
+
+        .form-group
+          .col-sm-offset-2.col-sm-10
+            button.btn.btn-primary(type='submit')=__('save')
+            | &nbsp;
+            a.btn(href='/'  title="cancel")=__('cancel')

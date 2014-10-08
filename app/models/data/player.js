@@ -12,10 +12,10 @@ var mongoose = require('mongoose')
  */
 
 var PlayerSchema = new Schema({
-  name: {type: String, lowercase: true, require: true, index: true},
+  name: {type: String, lowercase: true, require: true, unique: true, index: true},
   score: {type: Number},
   count: {type: Number},
-  average: {type: average, index:true},
+  average: {type: Number, index:true},
 	update_at: {type: Date, default: Date.now}
 })
 
@@ -32,7 +32,7 @@ PlayerSchema.statics = {
   load: function (name, cb) {
     this.findOne({ name : name })
       .exec(cb)
-  }
+  },
 
   /**
    * List players by average score
@@ -46,7 +46,7 @@ PlayerSchema.statics = {
     var criteria = options.criteria || {} // {name: name}
 
     this.find(criteria)
-      .sort({'average': 1}) // sort by date
+      .sort({'average': -1}) // sort by date
       .limit(options.perPage)
       .skip(options.perPage * options.page)
       .exec(cb)

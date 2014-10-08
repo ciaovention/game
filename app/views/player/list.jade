@@ -1,0 +1,55 @@
+extends ../layouts/default
+
+block main
+  .row
+    .col-md-8.col-md-offset-2
+      center
+        h1= title
+        hr
+
+block content
+  
+  - if (players.length)
+    .row
+      .col-md-8.col-md-offset-2
+        .col-sm-2
+          h4
+            | #{__('Ranking')}
+        .col-sm-3
+          h4
+            | #{__('Name')}
+        .col-sm-3
+          h4
+            | #{__('Average Score')}
+        .col-sm-4
+          h4
+            | #{__('Description')}
+
+    - var ranking = 1 + (page - 1) * pages
+    - each player in players
+      .row
+        .col-md-8.col-md-offset-2
+          .col-sm-2
+            | #{ranking}
+          .col-sm-3
+            a(href='/player/#{player.name}')
+              | #{player.name.charAt(0).toUpperCase() +  player.name.slice(1)}
+          .col-sm-3
+            | #{player.average}
+          .col-sm-4
+            | Total score #{player.score} on #{player.count} Games
+
+      - ranking++
+        
+    - if (pages > 1)
+      ul.pager.pull-left
+        != createPagination(pages, page, __('previous'), __('next'))
+      
+  - else
+    h2.muted=__('No Games')
+      | &nbsp;
+
+      a(href="/game/new")=__('Start')
+block vars
+  script.
+    var csrf = "#{csrf_token}";

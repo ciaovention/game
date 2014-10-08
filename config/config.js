@@ -15,15 +15,15 @@ var path = require('path')
 
 module.exports = {
   development: {
-    db: 'mongodb://localhost/wcard',
-    db_session: 'mongodb://localhost/wcard',
+    db: 'mongodb://localhost/game',
+    db_session: 'mongodb://localhost/game',
     session_maxAge: 7 * 24 * 3600 * 1000, // session expire in a week
     root: rootPath,
     notifier: notifier,
     app: {
-      name: 'wcard'
+      name: 'game'
     },
-    host: 'http://local.wcard.co:3000',
+    host: 'http://local.game.co:3000',
     port: 3000,
     ipaddr: 'localhost',
     mandrill_key: 'mz1vfbrXlLp5eMtTH4IsRA',
@@ -64,9 +64,9 @@ module.exports = {
     root: rootPath,
     notifier: notifier,
     app: {
-      name: 'wcard'
+      name: 'game'
     },
-    host: 'http://beta-wcard.rhcloud.com',
+    host: 'http://beta-game.rhcloud.com',
     port: process.env.OPENSHIFT_NODEJS_PORT ||  process.env.OPENSHIFT_INTERNAL_PORT || 8080,
     ipaddr: process.env.OPENSHIFT_NODEJS_IP || process.env.OPENSHIFT_INTERNAL_IP,
     mandrill_key: 'mz1vfbrXlLp5eMtTH4IsRA',
@@ -96,15 +96,15 @@ module.exports = {
     }
   },
   production: {
-    db: process.env.OPENSHIFT_MONGODB_DB_URL+'wcard',
-    db_session: process.env.OPENSHIFT_MONGODB_DB_URL+'wcard',
+    db: process.env.OPENSHIFT_MONGODB_DB_URL+'game',
+    db_session: process.env.OPENSHIFT_MONGODB_DB_URL+'game',
     session_maxAge: 24 * 3600 * 1000, // session expire in a day, due to low capacity of mongo storage
     root: rootPath,
     notifier: notifier,
     app: {
-      name: 'wcard'
+      name: 'game'
     },
-    host: 'http://www.wcard.co',
+    host: 'http://www.game.co',
     port: process.env.OPENSHIFT_NODEJS_PORT ||  process.env.OPENSHIFT_INTERNAL_PORT || 8080,
     ipaddr: process.env.OPENSHIFT_NODEJS_IP || process.env.OPENSHIFT_INTERNAL_IP,
     mandrill_key: 'mz1vfbrXlLp5eMtTH4IsRA',
@@ -134,15 +134,15 @@ module.exports = {
     }
   },
   live: {
-    db: 'mongodb://localhost/wcard',
-    db_session: 'mongodb://localhost/wcard',
+    db: 'mongodb://localhost/game',
+    db_session: 'mongodb://localhost/game',
     session_maxAge: 24 * 3600 * 1000, // session expire in a day, due to low capacity of mongo storage
     root: rootPath,
     notifier: notifier,
     app: {
-      name: 'wcard'
+      name: 'game'
     },
-    host: 'http://www.wcard.co',
+    host: 'http://www.game.co',
     port: 8080,
     ipaddr: 'localhost',
     mandrill_key: 'mz1vfbrXlLp5eMtTH4IsRA',

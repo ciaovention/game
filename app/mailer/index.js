@@ -20,8 +20,8 @@ exports.verify_email = function(user,cb){
 	mandrill('/messages/send', {
 	    message: {
 	        to: [{email: user.email, name: user.name}],
-	        from_email: 'info@wcard.co',
-	        from_name: __('wcard'),
+	        from_email: 'info@game.co',
+	        from_name: __('game'),
 	        subject: __('email_verify_email_title'),
 	        text: processTemplate('verify_email/text',locals),
 	        html: processTemplate('verify_email/html',locals),
@@ -44,8 +44,8 @@ exports.forgot_password = function(user,cb){
 	mandrill('/messages/send', {
 	    message: {
 	        to: [{email: user.email, name: user.name}],
-	        from_email: 'info@wcard.co',
-	        from_name: __('wcard'),
+	        from_email: 'info@game.co',
+	        from_name: __('game'),
 	        subject: __('email_reset_password_title'),
 	        text: processTemplate('forgot_password/text',locals),
 	        html: processTemplate('forgot_password/html',locals),
@@ -94,8 +94,8 @@ exports.request = function(request,cb){
 	mandrill('/messages/send', {
 	    message: {
 	        to: [{email: user.email, name: user.name}],
-	        from_email: 'info@wcard.co',
-	        from_name: __('wcard'),
+	        from_email: 'info@game.co',
+	        from_name: __('game'),
 	        subject: __('email_request_title'),
 	        text: text,
 	        html: html,
@@ -136,8 +136,8 @@ var accepted_email = function(request, user){
 	mandrill('/messages/send', {
 	    message: {
 	        to: [{email: user.email, name: user.name}],
-	        from_email: 'info@wcard.co',
-	        from_name: __('wcard'),
+	        from_email: 'info@game.co',
+	        from_name: __('game'),
 	        subject:  __('email_accepted_title'),
 	        text: processTemplate('accepted/text',locals),
 	        html: processTemplate('accepted/html',locals),
@@ -171,8 +171,8 @@ var feedback_email = function(type, transaction){
 	mandrill('/messages/send', {
 	    message: {
 	        to: [{email: receiver.email, name: receiver.name}],
-	        from_email: 'info@wcard.co',
-	        from_name: __('wcard'),
+	        from_email: 'info@game.co',
+	        from_name: __('game'),
 	        subject:  __('email_feedback_title'),
 	        text: processTemplate('feedback/'+type+'/text',locals),
 	        html: processTemplate('feedback/'+type+'/html',locals),

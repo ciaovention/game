@@ -1,77 +1,17 @@
-extends ../layouts/home_default
+extends ../layouts/default
 
 block content
-  - var random = Math.floor((Math.random() * 8) + 1)
-    .fullscreen_post_bg(style='background-image: url(#{getImage("images/"+random+".jpg")});')
-    //.fullscreen_post_bg(style='background-image: url(\'/img/bg/#{random}.jpg\');')
-    //.fullscreen_post_bg(style='background-image: url(\'/img/bg/#{req.query.num}.jpg\');')
-    .overlay
   
   .row
-    .col-md-4.col-md-offset-4
-        h2.no-margin-top(style='color:white')
-          strong
-            |#{__('wcard')}
+    .col-md-6.col-md-offset-3
+        h2
+          center
+            strong
+              |#{__('Welcome to foosball game')}
   
-  .row.home-detail
-    .col-md-4.col-md-offset-4
-      p.lead.text-white=__('what_is_wcard_text')
-    .col-md-4.col-md-offset-4
-        a(href='/signup').btn.btn-primary.btn-full-width
-          | #{__('create_mine')}
-    br
-    .row
-      .col-md-4.col-md-offset-4
-        .col-xs-6
-            a.btn.text-white.btn-full-width.spinner(href="/auth/linkedin")
-              i.fa.fa-linkedin.fa-2
-              | &nbsp;
-              | LinkedIn
-        .col-xs-6
-            a.btn.text-white.btn-full-width(href="/login")
-              i.fa.fa-sign-in.fa-2
-              | &nbsp;
-              | #{__('login')}
-
-  script.
-    window.shareData = {
-      "imgUrl": "#{getImage("images/"+random+".jpg")}",
-      "timeLineLink": window.location.href,
-      "tTitle": "#{__('what_is_wcard_text')}",
-      "tContent": "#{__('wcard')}"
-    };
-
-    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-      WeixinJSBridge.on('menu:share:appmessage', function(argv) {
-        WeixinJSBridge.invoke('sendAppMessage', {
-          "img_url": window.shareData.imgUrl,
-          "link": window.shareData.timeLineLink,
-          "desc": window.shareData.tContent,
-          "title": window.shareData.tTitle
-        }, function(res) {
-          document.location.href = mebtnopenurl;
-        })
-      });
-
-      WeixinJSBridge.on('menu:share:timeline', function(argv) {
-        WeixinJSBridge.invoke('shareTimeline', {
-          "img_url": window.shareData.imgUrl,
-          "img_width": "640",
-          "img_height": "640",
-          "link": window.shareData.timeLineLink,
-          "desc": window.shareData.tContent,
-          "title": "微名片:" + window.shareData.tTitle
-        }, function(res) {
-          document.location.href = mebtnopenurl;
-        });
-      });
-
-      WeixinJSBridge.on('menu:share:weibo', function(argv) {
-        WeixinJSBridge.invoke('shareWeibo', {
-          "content": window.shareData.tContent,
-          "url": window.shareData.timeLineLink
-        }, function(res) {
-          document.location.href = mebtnopenurl;
-        });
-      });
-    }, false);
+  br
+  br
+  .row
+    .col-md-6.col-md-offset-3
+        a(href='/game/new').btn.btn-primary.btn-bg.btn-full-width
+          | #{__('Start')}
