@@ -1,16 +1,42 @@
 extends ../layouts/default
 
 block main
-  .row
-    .col-md-8.col-md-offset-2
-      center
-        h1= title
-        hr
+	.row
+		.col-md-8.col-md-offset-2
+			center
+				h1= title
+	hr
 
 block content
-  .row
-    | #{player.name.charAt(0).toUpperCase() +  player.name.slice(1)}
-    br
-    | #{player.average}
-    br
-    | Total score #{player.score} on #{player.count} Games
+	.row
+		H4 Name
+		| #{player.name.charAt(0).toUpperCase() +  player.name.slice(1)}
+		H4 Average Score
+		| #{player.average}
+		H4 Description
+		| Total score #{player.score} on #{player.count} Games
+
+	hr
+	H4 History of games	
+	.row
+		.col-sm-4
+			| #{__('Player1')}
+		.col-sm-4
+			| #{__('Player2')}
+		.col-sm-4
+			| #{__('Score')}
+	- each game in games
+		.row
+			.col-sm-4
+				a(href='/player/#{game.player1}')
+					| #{game.player1.charAt(0).toUpperCase() +  game.player1.slice(1)}
+			.col-sm-4
+				a(href='/player/#{game.player2}')
+					| #{game.player2.charAt(0).toUpperCase() +  game.player2.slice(1)}
+			.col-sm-4
+				| #{game.score}
+
+	- if (pages > 1)
+		ul.pager.pull-left
+			!= createPagination(pages, page, __('previous'), __('next'))
+

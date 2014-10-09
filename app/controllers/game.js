@@ -50,7 +50,7 @@ exports.create = function (req, res){
 				})
 		    }
 
-		    return res.redirect('/')
+		    return res.redirect('/ranking')
 		});
 	})
 

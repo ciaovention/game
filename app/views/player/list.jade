@@ -25,8 +25,17 @@ block content
           h4
             | #{__('Description')}
 
-    - var ranking = 1 + (page - 1) * pages
+    - var ranking = 1 + (page - 1) * 10
+    - var pre_score = null
+    - var count = index = 0
     - each player in players
+      -if(index == 0)
+        - pre_score = player.average
+      -if(index > 0 && pre_score != player.average)
+          - pre_score = player.average
+          - ranking += count
+          - count = 0
+      - count++
       .row
         .col-md-8.col-md-offset-2
           .col-sm-2
@@ -39,11 +48,13 @@ block content
           .col-sm-4
             | Total score #{player.score} on #{player.count} Games
 
-      - ranking++
-        
+      - index++
+    
     - if (pages > 1)
-      ul.pager.pull-left
-        != createPagination(pages, page, __('previous'), __('next'))
+      .row
+        .col-md-8.col-md-offset-2
+          ul.pager.pull-left
+            != createPagination(pages, page, __('previous'), __('next'))
       
   - else
     h2.muted=__('No Games')

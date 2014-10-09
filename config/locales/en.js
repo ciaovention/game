@@ -351,5 +351,8 @@
 	"Name": "Name",
 	"Average Score": "Average Score",
 	"Description": "Description",
-	"Player": "Player"
+	"Player": "Player",
+	"Player1": "Player1",
+	"Player2": "Player2",
+	"Player Ranking": "Player Ranking"
 }

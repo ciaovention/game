@@ -12,6 +12,10 @@ $players = [];
 
 // Define CSV file
 $csv_file = './scores.csv';
+
+if(!file_exists($csv_file))
+	die("No scores file found!\n");
+
 $csv_handle = fopen($csv_file, 'r');
 $line = 0;
 
@@ -61,12 +65,23 @@ $gamesCol->batchInsert($data_games,['continueOnError' => true]);
 // Update player's score
 foreach ($players as $key => $player) {
 	$query = ['name' => $key];
+	$playerDoc = $playersCol->findOne($query);
+
+	if(empty($playerDoc)){
+		$playerDoc['score'] = 0;
+		$playerDoc['count'] = 0;
+	}
+
 	$data = [
-		'score' => (int)$player['score'],
-		'count' => (int)$player['count'],
-		'average' => round($player['score'] / $player['count'], 2)
+		'score' => (int)$player['score'] + $playerDoc['score'],
+		'count' => (int)$player['count'] + $playerDoc['count']
 	];
+
+	$data['average'] = round($data['score'] / $data['count'], 2);
+
 	$playersCol->update($query,['$set' => $data], ['multiple' => false, 'upsert' => true]);
 }
 
 echo "\nComplete import ". ($line - 1) ." records\n";
+
+rename($csv_file, $csv_file.'.'.time().'.bk');
